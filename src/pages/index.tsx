@@ -1,5 +1,10 @@
 import React, { JSX } from "react";
+import Layout from "../components/Layout";
 
 export default function Home(): JSX.Element {
-  return <div>Hello world!</div>;
+  return (
+    <Layout>
+      <h1>Hello world!</h1>
+    </Layout>
+  );
 }
