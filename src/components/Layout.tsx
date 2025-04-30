@@ -1,5 +1,6 @@
 import React, { JSX } from "react";
 import styled from "styled-components";
+import "normalize.css";
 import "../assets/sass/main.scss";
 
 const LayoutContainer = styled.div`
