@@ -1,5 +1,7 @@
+@use "./colors.scss";
+
 body {
-  background-color: #183026;
+  background-color: var(--background-color);
   background-image: url("../images/overlay.png"), url("../images/bg.jpg");
   background-repeat: repeat, no-repeat;
   background-size: cover;
@@ -10,7 +12,7 @@ body {
   line-height: 1.75em;
   font-weight: 300;
   letter-spacing: 1px;
-  color: #3a3939;
-  text-shadow: 0 0 0.5px rgba(58, 57, 57, 0.25);
+  color: var(--text-color);
+  text-shadow: 0 0 0.5px var(--text-shadow-color);
   -webkit-text-stroke: 0.25px;
 }
