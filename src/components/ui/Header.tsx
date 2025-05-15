@@ -1,8 +1,8 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import config from "../../config";
-import Menu from "./Menu";
+import config from "../../../config";
+import Menu from "../Menu";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -13,6 +13,7 @@ const StyledLink = styled(Link)`
 const ShortDescription = styled.p`
   font-size: var(--font-size-large);
   text-align: center;
+  text-transform: uppercase;
   &::before {
     content: "";
     display: block;
