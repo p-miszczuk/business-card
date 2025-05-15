@@ -16,6 +16,19 @@ const AboutSectionWrapper = styled.section`
     var(--secondary-green)
   );
   margin-bottom: 200px;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 200px;
+    height: 100px;
+    background: url("/images/computer.svg") no-repeat center center;
+    background-size: contain;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+  }
 `;
 
 const AboutSectionText = styled.p`
