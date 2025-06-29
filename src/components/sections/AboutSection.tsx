@@ -15,7 +15,7 @@ const AboutSectionWrapper = styled.section`
     var(--primary-green),
     var(--secondary-green)
   );
-  margin-bottom: 200px;
+  margin-bottom: 250px;
   &::before {
     content: "";
     position: absolute;

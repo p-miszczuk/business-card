@@ -10,6 +10,8 @@ const LayoutContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: start;
+  margin: 0 auto;
+  max-width: 1200px;
 `;
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
