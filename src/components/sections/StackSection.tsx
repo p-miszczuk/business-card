@@ -1,6 +1,8 @@
+import { FRONTEND_STACK, BACKEND_STACK } from "../../utils/stack";
 import React from "react";
 import styled from "styled-components";
 import SectionIcons from "../tools/SectionIcons";
+import VisualElement from "./VisualElement";
 
 const StackSectionContainer = styled.section`
   display: flex;
@@ -9,6 +11,7 @@ const StackSectionContainer = styled.section`
   justify-content: center;
   width: 100%;
   min-height: 300px;
+  padding-bottom: 20px;
   background-color: white;
 `;
 
@@ -22,7 +25,9 @@ const StackSection = () => {
   return (
     <StackSectionContainer>
       <StackSectionHeader>Stack</StackSectionHeader>
-      <SectionIcons />
+      <SectionIcons icons={FRONTEND_STACK} />
+      <StackSectionHeader>Backend</StackSectionHeader>
+      <SectionIcons icons={BACKEND_STACK} />
     </StackSectionContainer>
   );
 };

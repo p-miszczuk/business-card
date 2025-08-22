@@ -6,18 +6,16 @@ const VisualElementWrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
+  position: relative;
 `;
 
 export const VisualElementLine = styled.span<{
   sectionHeight: number;
-  topPosition?: number;
 }>`
-  position: absolute;
   display: block;
   width: 1px;
   background-color: var(--background-color-line);
   height: ${({ sectionHeight }) => sectionHeight || 200}px;
-  top: ${({ topPosition }) => topPosition || 0}px;
 `;
 
 export const ImageElement = styled.span<{ top?: number }>`
@@ -33,21 +31,16 @@ export const ImageElement = styled.span<{ top?: number }>`
 
 const VisualElement = ({
   sectionHeight,
-  topPosition,
   id,
   topImagePosition,
 }: {
   sectionHeight: number;
-  topPosition?: number;
   id?: string;
   topImagePosition?: number;
 }) => {
   return (
     <VisualElementWrapper key={id}>
-      <VisualElementLine
-        sectionHeight={sectionHeight}
-        topPosition={topPosition}
-      />
+      <VisualElementLine sectionHeight={sectionHeight} />
       <ImageElement top={topImagePosition} />
     </VisualElementWrapper>
   );

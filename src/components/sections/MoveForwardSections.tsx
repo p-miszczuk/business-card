@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import VisualElement from "./VisualElement";
 
 const MoveForwardSectionsWrapper = styled.section`
   display: flex;
@@ -9,7 +8,6 @@ const MoveForwardSectionsWrapper = styled.section`
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: 250px;
 `;
 
 const MoveForwardLink = styled(Link)`
@@ -37,12 +35,6 @@ const MoveForwardSections = () => {
       <MoveForwardLink to="/" role="button">
         Move Forward
       </MoveForwardLink>
-      <VisualElement
-        id="move-forward-sections"
-        sectionHeight={250}
-        topPosition={80}
-        topImagePosition={180}
-      />
     </MoveForwardSectionsWrapper>
   );
 };
