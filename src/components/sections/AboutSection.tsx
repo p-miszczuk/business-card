@@ -1,4 +1,3 @@
-import VisualElement from "./VisualElement";
 import React from "react";
 import styled from "styled-components";
 import SectionHeader from "../ui/SectionHeader";
@@ -7,7 +6,7 @@ const AboutSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   height: 400px;
   background: linear-gradient(
@@ -15,7 +14,6 @@ const AboutSectionWrapper = styled.section`
     var(--primary-green),
     var(--secondary-green)
   );
-  margin-bottom: 200px;
   &::before {
     content: "";
     position: absolute;
@@ -53,12 +51,6 @@ const AboutSection = () => {
           other modern technologies to build responsive and user-friendly web
           solutions.
         </AboutSectionText>
-        <VisualElement
-          sectionHeight={250}
-          topPosition={400}
-          topImagePosition={500}
-          id="about"
-        />
       </AboutSectionWrapper>
     </>
   );
