@@ -6,6 +6,7 @@ import MoveForwardSections from "../components/sections/MoveForwardSections";
 import AboutSection from "../components/sections/AboutSection";
 import StackSection from "../components/sections/StackSection";
 import VisualElement from "../components/sections/VisualElement";
+import Contact from "../components/sections/Contact";
 
 export default function Home(): JSX.Element {
   return (
@@ -22,6 +23,7 @@ export default function Home(): JSX.Element {
         <VisualElement id="about" sectionHeight={300} topImagePosition={120} />
         <StackSection />
         <VisualElement id="stack" sectionHeight={300} topImagePosition={120} />
+        <Contact />
       </MainContainer>
     </Layout>
   );
