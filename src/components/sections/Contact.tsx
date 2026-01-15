@@ -10,9 +10,11 @@ const ContactWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  min-height: 300px;
   background-color: white;
   margin-bottom: 60px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 8px rgba(10, 10, 10, 0.2);
+  padding: 0 20px;
 `;
 
 const SectionContent = styled.div`
@@ -21,11 +23,12 @@ const SectionContent = styled.div`
   align-items: center;
   justify-content: center;
   padding-bottom: 20px;
+  width: 100%;
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
-    max-width: 600px;
-    width: 100%;
+    max-width: 650px;
+    height: 400px;
   }
 `;
 
@@ -34,7 +37,7 @@ const Contact = () => {
     <ContactWrapper>
       <SectionHeader title="Contact" color="#707070" />
       <SectionContent>
-        <SectionIcons icons={SOCIAL_MEDIA_LINKS} />
+        <SectionIcons icons={SOCIAL_MEDIA_LINKS} direction="column" />
         <ContactForm />
       </SectionContent>
     </ContactWrapper>

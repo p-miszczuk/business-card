@@ -3,24 +3,26 @@
 import React from "react";
 import styled from "styled-components";
 
-const IconsContainer = styled.div`
+const IconsContainer = styled.div<{ direction?: "row" | "column" }>`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 40px;
+  @media (min-width: 768px) {
+    flex-direction: ${({ direction }) => direction || "row"};
+  }
 `;
 
 const IconWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 90px;
   min-height: 100px;
 `;
 
 const IconLabel = styled.span`
-  margin-top: 20px;
+  margin-top: 8px;
   font-size: 0.9rem;
   color: #000;
   line-height: 1.2;
@@ -32,11 +34,14 @@ const IconLinkWrapper = styled.a`
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  gap: 5px;
+  text-align: center;
+  gap: 2px;
+  filter: grayscale(100%);
 `;
 
 interface SectionIconsArgs {
   icons: IconItem[];
+  direction?: "row" | "column";
 }
 
 interface IconItem {
@@ -46,7 +51,7 @@ interface IconItem {
   path?: string;
 }
 
-const SectionIcons = ({ icons }: SectionIconsArgs) => {
+const SectionIcons = ({ icons, direction = "row" }: SectionIconsArgs) => {
   const getIconWithText = ({ name, id, Icon }: IconItem) => {
     return (
       <IconWrapper key={id}>
@@ -71,7 +76,7 @@ const SectionIcons = ({ icons }: SectionIconsArgs) => {
   };
 
   return (
-    <IconsContainer>
+    <IconsContainer direction={direction}>
       {icons.map((icon) =>
         icon.path ? getIconWithLink(icon) : getIconWithText(icon)
       )}
