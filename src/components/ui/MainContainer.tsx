@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const MainContainerWrapper = styled.main`
   margin-top: 150px;
-  width: 100%;
+  width: calc(100% - 30px);
 `;
 
 const MainContainer = ({
