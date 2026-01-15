@@ -43,10 +43,14 @@ const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 17px;
+  background-color: lightgray;
   &::placeholder {
-    color: #ccc;
+    color: #888;
     font-size: 12px;
     text-transform: uppercase;
+  }
+  &:focus {
+    outline: none;
   }
 `;
 
@@ -59,10 +63,15 @@ const Textarea = styled.textarea`
   min-height: 80px;
   resize: none;
   margin-top: 3px;
+  background-color: lightgray;
   &::placeholder {
-    color: #ccc;
+    color: #888;
     font-size: 12px;
     text-transform: uppercase;
+    line-height: 1.4rem;
+  }
+  &:focus {
+    outline: none;
   }
 `;
 

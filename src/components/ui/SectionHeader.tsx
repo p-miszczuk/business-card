@@ -8,6 +8,7 @@ const Header = styled.h2<{ color?: string }>`
   justify-content: center;
   color: ${({ color }) => color || "white"};
   font-family: "Courier New", Courier, monospace;
+  z-index: 1;
 `;
 
 const SectionHeader = ({ title, color }: { title: string; color?: string }) => {

@@ -8,10 +8,15 @@ const IconsContainer = styled.div<{ direction?: "row" | "column" }>`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  gap: 20px;
+  background-color: lightgray;
+  gap: 30px;
+  padding: 3px 8px;
+  border-radius: 8px;
   @media (min-width: 768px) {
+    padding: 10px 3px;
     flex-direction: ${({ direction }) => direction || "row"};
   }
+  box-shadow: 0 0 10px 8px rgba(10, 10, 10, 0.2);
 `;
 
 const IconWrapper = styled.div`
