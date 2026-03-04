@@ -46,7 +46,7 @@ const AboutSectionText = styled.p`
   line-height: 1.75;
   color: var(--text-secondary);
   text-align: center;
-  max-width: 560px;
+  max-width: 700px;
   margin: 0;
 `;
 
@@ -55,10 +55,12 @@ const AboutSection = () => {
     <AboutSectionWrapper id="about">
       <SectionHeader title="About" />
       <AboutSectionText>
-        Hi, my name is Peter. I am a frontend developer creating comprehensive
-        internet applications. I specialize in React, Node.js, CSS, HTML, and
-        other modern technologies to build responsive and user-friendly web
-        solutions.
+        I'm Peter — a frontend developer focused on React, TypeScript, and
+        modern tooling like Next.js and Gatsby. I build responsive interfaces
+        with CSS, SASS, Styled Components, and UI libraries such as Material-UI
+        and Bootstrap. On the backend, I work with Node.js and Python, MongoDB
+        and Firebase as databases — enough to build and integrate APIs and
+        full-stack features, while steadily growing my backend skills.
       </AboutSectionText>
     </AboutSectionWrapper>
   );

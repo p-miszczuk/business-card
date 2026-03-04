@@ -11,10 +11,11 @@ import StyledComponentsIcon from "../assets/images/stack/styled-components-icon.
 import BootstrapIcon from "../assets/images/stack/bootstrap-icon.svg";
 import MaterialUiIcon from "../assets/images/stack/material-icon.svg";
 import GithubIcon from "../assets/images/stack/github-icon.svg";
-import FirebaseIcon from "../assets/images/stack/firebase-icon.svg";
 import NodejsIcon from "../assets/images/stack/node.svg";
 import PythonIcon from "../assets/images/stack/python.svg";
 import MongoIcon from "../assets/images/stack/mongo.svg";
+import FirebaseIcon from "../assets/images/stack/firebase-icon.svg";
+import PrismaIcon from "../assets/images/stack/prisma-icon.svg";
 
 export const FRONTEND_STACK = [
   {
@@ -82,11 +83,6 @@ export const FRONTEND_STACK = [
     name: "GitHub",
     Icon: GithubIcon,
   },
-  {
-    id: "firebase",
-    name: "Firebase",
-    Icon: FirebaseIcon,
-  },
 ];
 
 export const BACKEND_STACK = [
@@ -104,5 +100,15 @@ export const BACKEND_STACK = [
     id: "mongo",
     name: "MongoDB",
     Icon: MongoIcon,
+  },
+  {
+    id: "firebase",
+    name: "Firebase",
+    Icon: FirebaseIcon,
+  },
+  {
+    id: "prisma",
+    name: "Prisma",
+    Icon: PrismaIcon,
   },
 ];
