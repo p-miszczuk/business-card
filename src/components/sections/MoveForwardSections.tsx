@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 
 const MoveForwardSectionsWrapper = styled.section`
@@ -10,7 +9,7 @@ const MoveForwardSectionsWrapper = styled.section`
   padding: var(--spacing-2xl) 0;
 `;
 
-const MoveForwardLink = styled(Link)`
+const MoveForwardLink = styled.a`
   padding: var(--spacing-md) var(--spacing-2xl);
   border-radius: var(--radius-md);
   background-color: var(--link-background-color);
@@ -29,10 +28,16 @@ const MoveForwardLink = styled(Link)`
   }
 `;
 
+const scrollToAbout = (e: React.MouseEvent) => {
+  e.preventDefault();
+  const element = document.getElementById("about");
+  element?.scrollIntoView({ behavior: "smooth", block: "center" });
+};
+
 const MoveForwardSections = () => {
   return (
     <MoveForwardSectionsWrapper id="move-forward-sections">
-      <MoveForwardLink to="/" role="button">
+      <MoveForwardLink href="#about" role="button" onClick={scrollToAbout}>
         Move Forward
       </MoveForwardLink>
     </MoveForwardSectionsWrapper>

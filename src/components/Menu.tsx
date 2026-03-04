@@ -2,9 +2,9 @@ import React, { JSX } from "react";
 import styled from "styled-components";
 
 const MENU_LINKS = [
-  { label: "Sekcja 1" },
-  { label: "Sekcja 2" },
-  { label: "Sekcja 3" },
+  { label: "About", url: "#about" },
+  { label: "Stack", url: "#stack" },
+  { label: "Contact", url: "#contact" },
 ] as const;
 
 const NavigationContainer = styled.nav`
@@ -29,11 +29,23 @@ const NavItem = styled.li`
   margin: 0;
 `;
 
-const NavText = styled.span`
+const NavLink = styled.a`
   color: var(--text-secondary);
   font-size: 1rem;
-  cursor: default;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--accent-primary);
+  }
 `;
+
+const scrollToSection = (id: string) => (e: React.MouseEvent) => {
+  e.preventDefault();
+  const element = document.getElementById(id);
+  element?.scrollIntoView({ behavior: "smooth", block: "center" });
+};
 
 const Menu = (): JSX.Element => {
   return (
@@ -41,7 +53,9 @@ const Menu = (): JSX.Element => {
       <NavLinks>
         {MENU_LINKS.map((link) => (
           <NavItem key={link.label}>
-            <NavText>{link.label}</NavText>
+            <NavLink href={link.url} onClick={scrollToSection(link.url.slice(1))}>
+              {link.label}
+            </NavLink>
           </NavItem>
         ))}
       </NavLinks>
