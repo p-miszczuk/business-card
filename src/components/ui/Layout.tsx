@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-import React, { JSX, useEffect, useState } from "react";
+import React, { JSX } from "react";
 import styled from "styled-components";
 import "normalize.css";
 import "../../assets/sass/main.scss";
@@ -9,21 +9,19 @@ const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  min-height: 100vh;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1000px;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 0 var(--spacing-md);
+  }
 `;
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const [isPreloaded, setIsPreloaded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsPreloaded(true);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <StaticQuery
       query={graphql`
@@ -43,12 +41,12 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
             meta={[
               {
                 name: "description",
-                content: "Piotr Miszczuk - web developer",
+                content: "Piotr Miszczuk - frontend developer",
               },
               {
                 name: "keywords",
                 content:
-                  "web developer, react developer, javascript developer, typescript developer, node.js developer, python developer, git, github",
+                  "frontend developer, react developer, javascript developer, typescript developer, node.js developer, python developer, git, github",
               },
             ]}
           >

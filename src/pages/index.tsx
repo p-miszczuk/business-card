@@ -16,8 +16,8 @@ export default function Home(): JSX.Element {
         <MoveForwardSections />
         <VisualElement
           id="move-forward-sections"
-          sectionHeight={400}
-          topImagePosition={170}
+          sectionHeight={300}
+          topImagePosition={120}
         />
         <AboutSection />
         <VisualElement id="about" sectionHeight={300} topImagePosition={120} />

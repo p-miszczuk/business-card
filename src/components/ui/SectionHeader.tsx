@@ -1,18 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const Header = styled.h2<{ color?: string }>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: ${({ color }) => color || "white"};
-  font-family: "Courier New", Courier, monospace;
-  z-index: 1;
+const Header = styled.h2`
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin: 0 0 var(--spacing-lg);
 `;
 
-const SectionHeader = ({ title, color }: { title: string; color?: string }) => {
-  return <Header color={color}>{title}</Header>;
+const SectionHeader = ({ title }: { title: string; color?: string }) => {
+  return <Header>{title}</Header>;
 };
 
 export default SectionHeader;

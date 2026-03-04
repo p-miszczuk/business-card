@@ -6,33 +6,39 @@ import Menu from "../Menu";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  font-size: var(--font-size-xLarge);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
   color: var(--text-color);
-`;
+  letter-spacing: -0.02em;
+  transition: color var(--transition-base);
 
-const ShortDescription = styled.p`
-  font-size: var(--font-size-large);
-  text-align: center;
-  text-transform: uppercase;
-  &::before {
-    content: "";
-    display: block;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    padding-top: 1em;
+  &:hover {
+    color: var(--accent-primary);
   }
 `;
 
+const ShortDescription = styled.p`
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-normal);
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: var(--spacing-sm);
+`;
+
 const HeaderContainer = styled.header`
-  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: var(--spacing-3xl) 0;
 `;
 
-const HeaderContent = styled.h1`
-  margin-top: 200px;
+const HeaderContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 `;
 
 const Header = () => {

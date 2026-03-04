@@ -6,23 +6,36 @@ import styled from "styled-components";
 const IconsContainer = styled.div<{
   direction?: "row" | "column";
   transparentBackground?: boolean;
+  iconGap?: string;
 }>`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  gap: ${({ iconGap }) => iconGap || "var(--spacing-lg)"};
+  padding: var(--spacing-md);
   background-color: ${({ transparentBackground }) =>
-    transparentBackground ? "transparent" : "lightgray"};
-  gap: 5px;
-  padding: 3px 8px;
-  box-shadow: ${({ transparentBackground }) =>
-    transparentBackground ? "none" : "0 0 10px 8px rgba(10, 10, 10, 0.2)"};
+    transparentBackground ? "transparent" : "var(--background-elevated)"};
+  border-radius: var(--radius-md);
+
   @media (min-width: 768px) {
-    padding: 10px 3px;
     flex-direction: ${({ direction }) => direction || "row"};
+    gap: ${({ iconGap }) => iconGap || "var(--spacing-xl)"};
   }
-  @media (min-width: 1024px) {
-    gap: 10px;
+`;
+
+const IconBox = styled.div`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 `;
 
@@ -30,33 +43,41 @@ const IconWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90px;
-  min-height: 100px;
-  transform: scale(0.8);
+  gap: var(--spacing-sm);
+  min-width: 72px;
 `;
 
 const IconLabel = styled.span`
-  margin-top: 8px;
-  font-size: 0.9rem;
-  color: #000;
-  line-height: 1.2;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-muted);
   text-align: center;
+  line-height: 1.2;
 `;
 
 const IconLinkWrapper = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--spacing-sm);
   text-decoration: none;
-  text-align: center;
-  gap: 2px;
-  filter: grayscale(100%);
+  color: inherit;
+  transition: transform var(--transition-fast);
+
+  &:hover {
+    transform: translateY(-2px);
+
+    ${IconLabel} {
+      color: var(--accent-primary);
+    }
+  }
 `;
 
 interface SectionIconsArgs {
   icons: IconItem[];
   direction?: "row" | "column";
   transparentBackground?: boolean;
+  iconGap?: string;
 }
 
 interface IconItem {
@@ -70,37 +91,39 @@ const SectionIcons = ({
   icons,
   direction = "row",
   transparentBackground = false,
+  iconGap,
 }: SectionIconsArgs) => {
-  const getIconWithText = ({ name, id, Icon }: IconItem) => {
-    return (
-      <IconWrapper key={id}>
+  const getIconWithText = ({ name, id, Icon }: IconItem) => (
+    <IconWrapper key={id}>
+      <IconBox>
         <Icon />
-        <IconLabel>{name}</IconLabel>
-      </IconWrapper>
-    );
-  };
+      </IconBox>
+      <IconLabel>{name}</IconLabel>
+    </IconWrapper>
+  );
 
-  const getIconWithLink = ({ name, id, Icon, path }: IconItem) => {
-    return (
-      <IconLinkWrapper
-        key={id}
-        href={path}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+  const getIconWithLink = ({ name, id, Icon, path }: IconItem) => (
+    <IconLinkWrapper
+      key={id}
+      href={path}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <IconBox>
         <Icon />
-        <IconLabel>{name}</IconLabel>
-      </IconLinkWrapper>
-    );
-  };
+      </IconBox>
+      <IconLabel>{name}</IconLabel>
+    </IconLinkWrapper>
+  );
 
   return (
     <IconsContainer
       direction={direction}
       transparentBackground={transparentBackground}
+      iconGap={iconGap}
     >
       {icons.map((icon) =>
-        icon.path ? getIconWithLink(icon) : getIconWithText(icon),
+        icon.path ? getIconWithLink(icon) : getIconWithText(icon)
       )}
     </IconsContainer>
   );

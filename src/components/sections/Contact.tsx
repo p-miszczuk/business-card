@@ -1,66 +1,101 @@
 import { SOCIAL_MEDIA_LINKS } from "../../utils/contact";
-import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 import SectionHeader from "../ui/SectionHeader";
 import SectionIcons from "../tools/SectionIcons";
 import ContactForm from "../features/ContactForm";
 
-const ContactWrapper = styled.div`
+const ContactWrapper = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
-  background-color: white;
-  margin-bottom: 60px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px 8px rgba(10, 10, 10, 0.2);
-  padding: 0 20px;
-  position: relative;
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  background: var(--background-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-2xl);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 10px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(88, 166, 255, 0.25) 30%,
+      rgba(88, 166, 255, 0.7) 50%,
+      rgba(88, 166, 255, 0.25) 70%,
+      transparent 100%
+    );
+    border-radius: 0 0 50% 50%;
+    filter: blur(4px);
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
 `;
 
-const SectionContent = styled.div`
-  z-index: 1;
+const ContactHeader = styled.div`
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+`;
+
+const SocialBlock = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  padding-bottom: 20px;
+  gap: var(--spacing-3xl);
+  flex-wrap: wrap;
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-lg);
   width: 100%;
+
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 650px;
-    height: 400px;
+    gap: var(--spacing-3xl);
+  }
+`;
+
+const FormBlock = styled.div`
+  width: 100%;
+  max-width: 520px;
+  padding: var(--spacing-lg);
+  background: var(--background-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 480px) {
+    padding: var(--spacing-md);
   }
 `;
 
 const Contact = () => {
   return (
-    <ContactWrapper>
-      <StaticImage
-        src="../../assets/images/sections/contact.png"
-        alt="ss"
-        layout="fullWidth"
-        placeholder="blurred"
-        formats={["auto", "webp", "avif", "png"]}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 0,
-          objectFit: "cover",
-          filter: "brightness(80%)",
-        }}
-      />
-      <SectionHeader title="Contact" color="#707070" />
-      <SectionContent>
-        <SectionIcons icons={SOCIAL_MEDIA_LINKS} direction="column" />
+    <ContactWrapper id="contact">
+      <ContactHeader>
+        <SectionHeader title="Contact" />
+      </ContactHeader>
+
+      <SocialBlock>
+        <SectionIcons
+          icons={SOCIAL_MEDIA_LINKS}
+          direction="row"
+          iconGap="var(--spacing-3xl)"
+        />
+      </SocialBlock>
+
+      <FormBlock>
         <ContactForm />
-      </SectionContent>
+      </FormBlock>
     </ContactWrapper>
   );
 };

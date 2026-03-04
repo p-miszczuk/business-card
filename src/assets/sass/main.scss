@@ -1,19 +1,39 @@
 @use "./libs/colors.scss";
 @use "./libs/variables.scss";
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background-color);
-  background-image: url("../images/overlay.png"), url("../images/bg.jpg");
-  background-repeat: repeat, no-repeat;
-  background-size: cover;
-  background-position: top left, center 0;
-  background-attachment: fixed, fixed;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 18pt;
-  line-height: 1.75em;
-  font-weight: 300;
-  letter-spacing: 1px;
+  background-image: radial-gradient(
+      ellipse 120% 100% at 50% -30%,
+      rgba(88, 166, 255, 0.12),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 80% 50%,
+      rgba(163, 113, 247, 0.06),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 20% 80%,
+      rgba(63, 185, 80, 0.06),
+      transparent 50%
+    );
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: var(--text-color);
-  text-shadow: 0 0 0.5px var(--text-shadow-color);
-  -webkit-text-stroke: 0.25px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

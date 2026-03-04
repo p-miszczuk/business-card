@@ -1,16 +1,16 @@
 module.exports = {
-  siteTitle: "Piotr Miszczuk - web developer",
+  siteTitle: "Piotr Miszczuk - frontend developer",
   manifestName:
-    "Piotr Miszczuk - web developer, react developer, javascript developer, typescript developer, node.js developer, python developer, git, github",
+    "Piotr Miszczuk - frontend developer, react developer, javascript developer, typescript developer, node.js developer, python developer, git, github",
   manifestShortName: "Piotr Miszczuk",
   manifestStartUrl: "/",
-  manifestBackgroundColor: "#663399",
-  manifestThemeColor: "#663399",
+  manifestBackgroundColor: "#0d1117",
+  manifestThemeColor: "#58a6ff",
   manifestDisplay: "standalone",
   manifestIcon: "src/assets/images/favicon.png",
   pathPrefix: `/`,
   authorName: "Piotr Miszczuk",
-  heading: "Web Developer",
+  heading: "Frontend Developer",
   // social
   socialLinks: [
     {

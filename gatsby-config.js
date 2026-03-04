@@ -10,6 +10,9 @@ const config = require("./config");
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  siteMetadata: {
+    title: config.siteTitle,
+  },
   plugins: [
     "gatsby-plugin-styled-components",
     `gatsby-plugin-image`,

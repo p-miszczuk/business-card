@@ -6,122 +6,127 @@ import styled from "styled-components";
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  gap: 20px;
+  gap: var(--spacing-lg);
   width: 100%;
-  border-radius: 8px;
-  padding: 10px 8px;
-  box-shadow: 0 0 8px 0px rgba(10, 10, 10, 0.2);
-  height: 300px;
-  margin-top: 2rem;
-  @media (min-width: 768px) {
-    max-width: 400px;
-  }
+`;
+
+const FormTitle = styled.span`
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 `;
 
 const FormField = styled.div`
-  width: 100%;
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
 `;
 
 const Label = styled.label`
-  font-size: 13px;
-  font-family: "Courier", Courier, monospace;
-  letter-spacing: 0.1rem;
-  color: #333;
-  display: block;
-  margin: 0;
-  padding: 0;
-  line-height: 1.2rem;
-  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
 `;
 
 const Input = styled.input`
-  width: calc(100% - 10px);
-  padding: 8px 4px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 17px;
-  background-color: lightgray;
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-medium);
+  font-family: inherit;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
   &::placeholder {
-    color: #888;
-    font-size: 12px;
-    text-transform: uppercase;
+    color: var(--text-muted);
   }
+
   &:focus {
     outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px var(--accent-muted);
   }
 `;
 
 const Textarea = styled.textarea`
-  width: calc(100% - 10px);
-  padding: 8px 4px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 17px;
-  min-height: 80px;
-  resize: none;
-  margin-top: 3px;
-  background-color: lightgray;
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-medium);
+  font-family: inherit;
+  background: var(--background-color);
+  color: var(--text-color);
+  min-height: 100px;
+  resize: vertical;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
   &::placeholder {
-    color: #888;
-    font-size: 12px;
-    text-transform: uppercase;
-    line-height: 1.4rem;
+    color: var(--text-muted);
   }
+
   &:focus {
     outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px var(--accent-muted);
   }
 `;
 
 const Button = styled.button`
-  background-color: #333;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
   color: white;
-  padding: 8px 16px;
-  font-size: 17px;
-  border-radius: 4px;
+  background: var(--link-background-color);
   border: none;
-  box-shadow: 0 0 8px 0px rgba(10, 10, 10, 0.3);
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  &:hover {
-    background-color: #555;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    background: var(--secondary-green);
+    transform: translateY(-1px);
   }
+
   &:disabled {
-    background-color: #ccc;
+    opacity: 0.6;
     cursor: not-allowed;
   }
 `;
 
 const ErrorText = styled.div`
-  color: red;
-  font-size: 14px;
-  align-self: flex-start;
+  font-size: var(--font-size-small);
+  color: #cf222e;
 `;
 
 const ContactForm = () => {
   const { state, formErrors, handleChange, handleFormSubmit } =
     useContactForm();
 
-  const renderFieldErrors = (field: "email" | "message", prefix: string) => {
-    return (
-      <>
-        <ValidationError prefix={prefix} field={field} errors={state.errors} />
-        {formErrors[field] && <ErrorText>{formErrors[field]}</ErrorText>}
-      </>
-    );
-  };
+  const renderFieldErrors = (field: "email" | "message", prefix: string) => (
+    <>
+      <ValidationError prefix={prefix} field={field} errors={state.errors} />
+      {formErrors[field] && <ErrorText>{formErrors[field]}</ErrorText>}
+    </>
+  );
 
   return (
     <Form onSubmit={handleFormSubmit}>
+      <FormTitle>Send message</FormTitle>
       <FormField>
         <Label htmlFor="email">Email</Label>
         <Input
           id="email"
           type="email"
           name="email"
-          placeholder="Enter your email"
+          placeholder="your@email.com"
           onChange={handleChange}
         />
         {renderFieldErrors("email", "Email")}
@@ -131,13 +136,13 @@ const ContactForm = () => {
         <Textarea
           id="message"
           name="message"
-          placeholder="Enter your message"
+          placeholder="Your message..."
           onChange={handleChange}
         />
         {renderFieldErrors("message", "Message")}
       </FormField>
       <Button type="submit" disabled={state.submitting}>
-        Submit
+        {state.submitting ? "Sending..." : "Send"}
       </Button>
     </Form>
   );

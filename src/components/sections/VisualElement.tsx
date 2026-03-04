@@ -5,16 +5,22 @@ const VisualElementWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
   position: relative;
+  margin: var(--spacing-lg) 0;
 `;
 
 export const VisualElementLine = styled.span<{
   sectionHeight: number;
 }>`
   display: block;
-  width: 1px;
-  background-color: var(--background-color-line);
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--border-color) 20%,
+    var(--border-color) 80%,
+    transparent
+  );
   height: ${({ sectionHeight }) => sectionHeight || 200}px;
 `;
 
@@ -23,10 +29,13 @@ export const ImageElement = styled.span<{ top?: number }>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   position: absolute;
   top: ${({ top }) => top || 200}px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.95;
 `;
 
 const VisualElement = ({

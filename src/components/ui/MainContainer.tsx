@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const MainContainerWrapper = styled.main`
-  margin-top: 150px;
-  width: calc(100% - 30px);
+  width: 100%;
+  padding: var(--spacing-xl) 0 var(--spacing-3xl);
 `;
 
 const MainContainer = ({
