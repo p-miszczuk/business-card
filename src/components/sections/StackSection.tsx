@@ -10,17 +10,17 @@ const StackSectionContainer = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 300px;
-  padding-bottom: 20px;
   background-color: silver;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 8px rgba(10, 10, 10, 0.2);
 `;
 
 const StackSection = () => {
   return (
     <StackSectionContainer>
       <SectionHeader title="Stack" color="green" />
-      <SectionIcons icons={FRONTEND_STACK} />
-      <SectionIcons icons={BACKEND_STACK} />
+      <SectionIcons icons={FRONTEND_STACK} transparentBackground />
+      <SectionIcons icons={BACKEND_STACK} transparentBackground />
     </StackSectionContainer>
   );
 };

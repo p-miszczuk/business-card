@@ -3,27 +3,36 @@
 import React from "react";
 import styled from "styled-components";
 
-const IconsContainer = styled.div<{ direction?: "row" | "column" }>`
+const IconsContainer = styled.div<{
+  direction?: "row" | "column";
+  transparentBackground?: boolean;
+}>`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  background-color: lightgray;
-  gap: 30px;
+  background-color: ${({ transparentBackground }) =>
+    transparentBackground ? "transparent" : "lightgray"};
+  gap: 5px;
   padding: 3px 8px;
-  border-radius: 8px;
+  box-shadow: ${({ transparentBackground }) =>
+    transparentBackground ? "none" : "0 0 10px 8px rgba(10, 10, 10, 0.2)"};
   @media (min-width: 768px) {
     padding: 10px 3px;
     flex-direction: ${({ direction }) => direction || "row"};
   }
-  box-shadow: 0 0 10px 8px rgba(10, 10, 10, 0.2);
+  @media (min-width: 1024px) {
+    gap: 10px;
+  }
 `;
 
 const IconWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 90px;
   min-height: 100px;
+  transform: scale(0.8);
 `;
 
 const IconLabel = styled.span`
@@ -47,6 +56,7 @@ const IconLinkWrapper = styled.a`
 interface SectionIconsArgs {
   icons: IconItem[];
   direction?: "row" | "column";
+  transparentBackground?: boolean;
 }
 
 interface IconItem {
@@ -56,7 +66,11 @@ interface IconItem {
   path?: string;
 }
 
-const SectionIcons = ({ icons, direction = "row" }: SectionIconsArgs) => {
+const SectionIcons = ({
+  icons,
+  direction = "row",
+  transparentBackground = false,
+}: SectionIconsArgs) => {
   const getIconWithText = ({ name, id, Icon }: IconItem) => {
     return (
       <IconWrapper key={id}>
@@ -81,9 +95,12 @@ const SectionIcons = ({ icons, direction = "row" }: SectionIconsArgs) => {
   };
 
   return (
-    <IconsContainer direction={direction}>
+    <IconsContainer
+      direction={direction}
+      transparentBackground={transparentBackground}
+    >
       {icons.map((icon) =>
-        icon.path ? getIconWithLink(icon) : getIconWithText(icon)
+        icon.path ? getIconWithLink(icon) : getIconWithText(icon),
       )}
     </IconsContainer>
   );
