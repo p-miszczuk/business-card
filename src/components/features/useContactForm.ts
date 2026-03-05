@@ -1,15 +1,19 @@
 import { useRef, useState } from "react";
 import { useForm } from "@formspree/react";
 
+const INITIAL_FORM_VALUES = {
+  email: "",
+  message: "",
+};
+
 export const useContactForm = () => {
-  const [state, handleSubmit] = useForm("xyzprnde");
-  const [formErrors, setFormErrors] = useState({
-    email: "",
-    message: "",
-  });
+  const [state, handleSubmit] = useForm("xyzprnd");
   const formValues = useRef({
-    email: "",
-    message: "",
+    ...INITIAL_FORM_VALUES,
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    ...(formValues.current || {}),
   });
 
   const validateEmail = (email: string) => {
@@ -18,13 +22,13 @@ export const useContactForm = () => {
   };
 
   const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     formValues.current[event.target.name as keyof typeof formValues.current] =
       event.target.value;
   };
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     // Validate form before submission
@@ -50,7 +54,15 @@ export const useContactForm = () => {
     setFormErrors(newErrors);
 
     if (isValid) {
-      handleSubmit(event);
+      try {
+        await handleSubmit(event);
+        // Clear form after submission
+        formValues.current = { ...INITIAL_FORM_VALUES };
+        setFormErrors({ email: "", message: "" });
+        (event.target as HTMLFormElement).reset();
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 

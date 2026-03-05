@@ -1,4 +1,4 @@
-import MoveForwardSections from "./MoveForwardSections";
+import MoveForwardSections from "./MoveForward";
 
 // Import all section components
 // You can add more section imports here as they are created

@@ -3,9 +3,9 @@ import Layout from "../components/ui/Layout";
 import Header from "../components/ui/Header";
 import MainContainer from "../components/ui/MainContainer";
 import Menu from "../components/Menu";
-import MoveForwardSections from "../components/sections/MoveForwardSections";
-import AboutSection from "../components/sections/AboutSection";
-import StackSection from "../components/sections/StackSection";
+import MoveForwardSections from "../components/sections/MoveForward";
+import About from "../components/sections/About";
+import Stack from "../components/sections/Stack";
 import VisualElement from "../components/sections/VisualElement";
 import Contact from "../components/sections/Contact";
 
@@ -21,9 +21,9 @@ export default function Home(): JSX.Element {
           sectionHeight={300}
           topImagePosition={120}
         />
-        <AboutSection />
+        <About />
         <VisualElement id="about" sectionHeight={300} topImagePosition={120} />
-        <StackSection />
+        <Stack />
         <VisualElement id="stack" sectionHeight={300} topImagePosition={120} />
         <Contact />
       </MainContainer>

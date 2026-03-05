@@ -60,7 +60,9 @@ const AboutSection = () => {
         with CSS, SASS, Styled Components, and UI libraries such as Material-UI
         and Bootstrap. On the backend, I work with Node.js and Python, MongoDB
         and Firebase as databases — enough to build and integrate APIs and
-        full-stack features, while steadily growing my backend skills.
+        full-stack features, while steadily growing my backend skills. In my
+        daily work I also leverage AI tools, such as Cursor, to support
+        development workflows and accelerate the coding process.
       </AboutSectionText>
     </AboutSectionWrapper>
   );

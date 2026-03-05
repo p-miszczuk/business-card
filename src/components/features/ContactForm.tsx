@@ -41,7 +41,9 @@ const Input = styled.input`
   font-family: inherit;
   background: var(--background-color);
   color: var(--text-color);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 
   &::placeholder {
     color: var(--text-muted);
@@ -65,7 +67,9 @@ const Textarea = styled.textarea`
   color: var(--text-color);
   min-height: 100px;
   resize: vertical;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 
   &::placeholder {
     color: var(--text-muted);
@@ -88,7 +92,9 @@ const Button = styled.button`
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
 
   &:hover:not(:disabled) {
     background: var(--secondary-green);
@@ -127,6 +133,7 @@ const ContactForm = () => {
           type="email"
           name="email"
           placeholder="your@email.com"
+          autoComplete="off"
           onChange={handleChange}
         />
         {renderFieldErrors("email", "Email")}
@@ -136,7 +143,7 @@ const ContactForm = () => {
         <Textarea
           id="message"
           name="message"
-          placeholder="Your message..."
+          placeholder="Message..."
           onChange={handleChange}
         />
         {renderFieldErrors("message", "Message")}
