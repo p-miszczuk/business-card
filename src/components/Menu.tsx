@@ -2,6 +2,7 @@ import React, { JSX } from "react";
 import styled from "styled-components";
 
 const MENU_LINKS = [
+  { label: "Home", url: "#header" },
   { label: "About", url: "#about" },
   { label: "Stack", url: "#stack" },
   { label: "Contact", url: "#contact" },
@@ -12,7 +13,7 @@ const NavigationContainer = styled.nav`
   padding: 1rem 0;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   display: flex;
   justify-content: flex-end;
 `;
@@ -53,7 +54,10 @@ const Menu = (): JSX.Element => {
       <NavLinks>
         {MENU_LINKS.map((link) => (
           <NavItem key={link.label}>
-            <NavLink href={link.url} onClick={scrollToSection(link.url.slice(1))}>
+            <NavLink
+              href={link.url}
+              onClick={scrollToSection(link.url.slice(1))}
+            >
               {link.label}
             </NavLink>
           </NavItem>

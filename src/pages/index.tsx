@@ -2,6 +2,7 @@ import React, { JSX } from "react";
 import Layout from "../components/ui/Layout";
 import Header from "../components/ui/Header";
 import MainContainer from "../components/ui/MainContainer";
+import Menu from "../components/Menu";
 import MoveForwardSections from "../components/sections/MoveForwardSections";
 import AboutSection from "../components/sections/AboutSection";
 import StackSection from "../components/sections/StackSection";
@@ -11,6 +12,7 @@ import Contact from "../components/sections/Contact";
 export default function Home(): JSX.Element {
   return (
     <Layout>
+      <Menu />
       <Header />
       <MainContainer>
         <MoveForwardSections />

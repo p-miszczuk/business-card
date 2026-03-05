@@ -2,7 +2,6 @@ import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import config from "../../../config";
-import Menu from "../Menu";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -44,7 +43,6 @@ const HeaderContent = styled.div`
 const Header = () => {
   return (
     <HeaderContainer id="header">
-      <Menu />
       <HeaderContent>
         <StyledLink to="/">{config.authorName}</StyledLink>
         <ShortDescription>{config.heading}</ShortDescription>

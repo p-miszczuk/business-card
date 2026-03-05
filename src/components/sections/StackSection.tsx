@@ -70,7 +70,7 @@ const StackSection = () => {
           <SectionIcons icons={FRONTEND_STACK} transparentBackground />
         </div>
         <div>
-          <StackLabel>Backend</StackLabel>
+          <StackLabel>Backend and databases</StackLabel>
           <SectionIcons icons={BACKEND_STACK} transparentBackground />
         </div>
       </StackGroup>

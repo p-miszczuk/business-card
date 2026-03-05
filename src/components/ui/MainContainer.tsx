@@ -11,7 +11,7 @@ const MainContainer = ({
 }: {
   children: React.ReactNode;
 }): React.ReactNode => {
-  return <MainContainerWrapper>{children}</MainContainerWrapper>;
+  return <MainContainerWrapper id="main">{children}</MainContainerWrapper>;
 };
 
 export default MainContainer;

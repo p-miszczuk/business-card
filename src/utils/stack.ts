@@ -15,7 +15,7 @@ import NodejsIcon from "../assets/images/stack/node.svg";
 import PythonIcon from "../assets/images/stack/python.svg";
 import MongoIcon from "../assets/images/stack/mongo.svg";
 import FirebaseIcon from "../assets/images/stack/firebase-icon.svg";
-import PrismaIcon from "../assets/images/stack/prisma-icon.svg";
+import PrismaIcon from "../assets/images/stack/prisma.svg";
 
 export const FRONTEND_STACK = [
   {
