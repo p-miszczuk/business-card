@@ -1,3 +1,4 @@
+import React from "react";
 import { ValidationError } from "@formspree/react";
 import { useContactForm } from "./useContactForm";
 import styled from "styled-components";

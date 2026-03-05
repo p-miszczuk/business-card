@@ -1,17 +1,9 @@
 import { SOCIAL_MEDIA_LINKS } from "../../utils/contact";
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import styled from "styled-components";
 import SectionHeader from "../ui/SectionHeader";
 import SectionIcons from "../tools/SectionIcons";
-
-// it's related with Formspree, so we need to lazy load it
-// because it's not available on the server side
-// and we need to avoid hydration errors
-const ContactForm = lazy(() => import("../features/ContactForm"));
-
-const FormFallback = styled.div`
-  min-height: 200px;
-`;
+import ContactForm from "../features/ContactForm";
 
 const ContactWrapper = styled.section`
   position: relative;
@@ -102,13 +94,7 @@ const Contact = () => {
       </SocialBlock>
 
       <FormBlock>
-        {typeof window !== "undefined" ? (
-          <Suspense fallback={<FormFallback />}>
-            <ContactForm />
-          </Suspense>
-        ) : (
-          <FormFallback />
-        )}
+        <ContactForm />
       </FormBlock>
     </ContactWrapper>
   );

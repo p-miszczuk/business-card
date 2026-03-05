@@ -16,6 +16,9 @@ import PythonIcon from "../assets/images/stack/python.svg";
 import MongoIcon from "../assets/images/stack/mongo.svg";
 import FirebaseIcon from "../assets/images/stack/firebase-icon.svg";
 import PrismaIcon from "../assets/images/stack/prisma.svg";
+import PlaywrightIcon from "../assets/images/stack/playwright.svg";
+import CypressIcon from "../assets/images/stack/cypress.svg";
+import TailwindIcon from "../assets/images/stack/tailwind.svg";
 
 export const FRONTEND_STACK = [
   {
@@ -85,6 +88,12 @@ export const FRONTEND_STACK = [
     desc: "Bootstrap is a library for building responsive, mobile-first websites.",
   },
   {
+    id: "tailwind",
+    name: "Tailwind",
+    Icon: TailwindIcon,
+    desc: "Tailwind is a utility-first CSS framework for rapidly building custom designs.",
+  },
+  {
     id: "material-ui",
     name: "Material-UI",
     Icon: MaterialUiIcon,
@@ -95,6 +104,18 @@ export const FRONTEND_STACK = [
     name: "GitHub",
     Icon: GithubIcon,
     desc: "GitHub is a web-based platform for version control and collaboration.",
+  },
+  {
+    id: "playwright",
+    name: "Playwright",
+    Icon: PlaywrightIcon,
+    desc: "Playwright is a browser automation library that allows you to test your web applications.",
+  },
+  {
+    id: "cypress",
+    name: "Cypress",
+    Icon: CypressIcon,
+    desc: "Cypress is a JavaScript library for testing web applications.",
   },
 ];
 
