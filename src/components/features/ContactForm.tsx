@@ -1,6 +1,5 @@
 import { ValidationError } from "@formspree/react";
 import { useContactForm } from "./useContactForm";
-import React from "react";
 import styled from "styled-components";
 
 const Form = styled.form`
