@@ -4,24 +4,24 @@ import React from "react";
 import styled from "styled-components";
 
 const IconsContainer = styled.div<{
-  direction?: "row" | "column";
-  transparentBackground?: boolean;
-  iconGap?: string;
+  $direction?: "row" | "column";
+  $transparentBackground?: boolean;
+  $iconGap?: string;
 }>`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: ${({ iconGap }) => iconGap || "var(--spacing-lg)"};
+  gap: ${({ $iconGap }) => $iconGap || "var(--spacing-lg)"};
   padding: var(--spacing-md);
-  background-color: ${({ transparentBackground }) =>
-    transparentBackground ? "transparent" : "var(--background-elevated)"};
+  background-color: ${({ $transparentBackground }) =>
+    $transparentBackground ? "transparent" : "var(--background-elevated)"};
   border-radius: var(--radius-md);
 
   @media (min-width: 768px) {
-    flex-direction: ${({ direction }) => direction || "row"};
-    gap: ${({ iconGap }) => iconGap || "var(--spacing-xl)"};
+    flex-direction: ${({ $direction }) => $direction || "row"};
+    gap: ${({ $iconGap }) => $iconGap || "var(--spacing-xl)"};
   }
 `;
 
@@ -173,9 +173,9 @@ const SectionIcons = ({
 
   return (
     <IconsContainer
-      direction={direction}
-      transparentBackground={transparentBackground}
-      iconGap={iconGap}
+      $direction={direction}
+      $transparentBackground={transparentBackground}
+      $iconGap={iconGap}
     >
       {icons.map((icon) =>
         icon.path ? getIconWithLink(icon) : getIconWithText(icon),

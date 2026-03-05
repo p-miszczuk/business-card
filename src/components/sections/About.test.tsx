@@ -1,7 +1,6 @@
-/// <reference types="@testing-library/jest-dom" />
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import AboutSection from "./About";
+import "@testing-library/jest-dom";
 
 describe("AboutSection", () => {
   it("renders section with correct id", () => {
