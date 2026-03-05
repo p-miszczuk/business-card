@@ -29,9 +29,9 @@ describe("Contact", () => {
     expect(screen.getByText("LinkedIn")).toBeInTheDocument();
   });
 
-  it("renders contact form", () => {
+  it("renders contact form", async () => {
     render(<Contact />);
-    expect(screen.getByTestId("contact-form")).toBeInTheDocument();
+    expect(await screen.findByTestId("contact-form")).toBeInTheDocument();
   });
 
   it("renders social links with correct hrefs", () => {
