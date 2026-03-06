@@ -7,7 +7,7 @@ const INITIAL_FORM_VALUES = {
 };
 
 export const useContactForm = () => {
-  const [state, handleSubmit] = useForm("xyzprnd");
+  const [state, handleSubmit] = useForm("xyzprnde");
   const formValues = useRef({
     ...INITIAL_FORM_VALUES,
   });
@@ -32,37 +32,41 @@ export const useContactForm = () => {
     event.preventDefault();
 
     // Validate form before submission
-    let isValid = true;
-    const newErrors = { email: "", message: "" };
+    const newErrors = new Map<string, string>();
 
-    if (!formValues.current.email) {
-      newErrors.email = "Email jest wymagany";
-      isValid = false;
-    } else if (!validateEmail(formValues.current.email)) {
-      newErrors.email = "Niepoprawny format email";
-      isValid = false;
+    const email = formValues.current.email?.trim() || "";
+    const message = formValues.current.message?.trim() || "";
+
+    if (!email) {
+      newErrors.set("email", "Email jest wymagany");
+    } else if (!validateEmail(email)) {
+      newErrors.set("email", "Niepoprawny format email");
     }
 
-    if (!formValues.current.message) {
-      newErrors.message = "Wiadomość jest wymagana";
-      isValid = false;
-    } else if (formValues.current.message.length < 10) {
-      newErrors.message = "Wiadomość musi zawierać co najmniej 10 znaków";
-      isValid = false;
+    if (!message) {
+      newErrors.set("message", "Wiadomość jest wymagana");
+    } else if (message.length < 10) {
+      newErrors.set("message", "Wiadomość musi zawierać co najmniej 10 znaków");
     }
 
-    setFormErrors(newErrors);
+    if (newErrors.size > 0) {
+      setFormErrors(
+        Object.fromEntries(newErrors.entries()) as {
+          email: string;
+          message: string;
+        },
+      );
+      return;
+    }
 
-    if (isValid) {
-      try {
-        await handleSubmit(event);
-        // Clear form after submission
-        formValues.current = { ...INITIAL_FORM_VALUES };
-        setFormErrors({ email: "", message: "" });
-        (event.target as HTMLFormElement).reset();
-      } catch (error) {
-        console.error(error);
-      }
+    try {
+      await handleSubmit(event);
+      // Clear form after submission
+      formValues.current = { ...INITIAL_FORM_VALUES };
+      (event.target as HTMLFormElement).reset();
+      setFormErrors({ email: "", message: "" });
+    } catch (error) {
+      console.error(error);
     }
   };
 
