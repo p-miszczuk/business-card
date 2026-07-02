@@ -55,14 +55,20 @@ const AboutSection = () => {
     <AboutSectionWrapper id="about">
       <SectionHeader title="About" />
       <AboutSectionText>
-        I'm Peter — a frontend developer focused on React, TypeScript, and
-        modern tooling like Next.js and Gatsby. I build responsive interfaces
-        with CSS, SASS, Styled Components, and UI libraries such as Material-UI
-        and Bootstrap. On the backend, I work with Node.js and Python, MongoDB
-        and Firebase as databases — enough to build and integrate APIs and
-        full-stack features, while steadily growing my backend skills. In my
-        daily work I also leverage AI tools, such as Cursor, to support
-        development workflows and accelerate the coding process.
+        I am a Frontend Developer with nearly 7 years of experience in designing
+        and developing scalable web applications using React, Next.js, and
+        TypeScript. I specialize in performance optimization, frontend
+        architecture, and API integrations for FinTech systems and business
+        applications. Throughout the projects I have worked on, I have been
+        responsible for developing key product features, improving the data
+        layer, and reducing the loading time of critical views by up to 50%. I
+        have implemented optimizations including lazy loading, pagination,
+        memoization, and reducing over-fetching through context-aware data
+        fetching. I also have experience working with backend systems,
+        implementing server-side logic and integrating it with frontend
+        applications, which enables me to collaborate effectively with backend
+        teams. I am committed to code quality through code reviews, mentoring,
+        and promoting frontend best practices within the team.
       </AboutSectionText>
     </AboutSectionWrapper>
   );
